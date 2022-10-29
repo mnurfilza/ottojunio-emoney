@@ -1,0 +1,4 @@
+client:
+  biller:
+    host: https://phoenix-imkas.ottodigital.id/interview/biller/v1/
+    

@@ -1,0 +1,7 @@
+db:
+  emoneysvc:
+    host: e_money_db
+    port: 3306
+    username: root
+    password: root
+    database: e_money_svc
