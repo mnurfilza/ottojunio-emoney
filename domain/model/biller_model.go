@@ -13,10 +13,10 @@ type DetailBillerResponse struct {
 }
 
 type Biller struct {
-	ID       int    `json:"id"`
-	Category string `json:"category"`
-	Product  string `json:"product"`
-	Desc     string `json:"description"`
-	Price    int    `json:"price"`
-	Fee      int    `json:"fee"`
+	ID       int    `json:"id,omitempty"`
+	Category string `json:"category,omitempty"`
+	Product  string `json:"product,omitempty"`
+	Desc     string `json:"description,omitempty"`
+	Price    int    `json:"price,omitempty"`
+	Fee      int    `json:"fee,omitempty"`
 }

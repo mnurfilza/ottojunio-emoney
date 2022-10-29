@@ -22,9 +22,10 @@ type HistoryTransactionResponse struct {
 }
 
 type DetailTransaction struct {
-	UserID string  `json:"userId"`
-	Name   string  `json:"name"`
-	Biller *Biller `json:"biller"`
+	UserID     string  `json:"userId"`
+	Name       string  `json:"name"`
+	Biller     *Biller `json:"biller"`
+	Keterangan string  `json:"keterangan,omitempty"`
 }
 
 type ConfirmationTransactionReq struct {

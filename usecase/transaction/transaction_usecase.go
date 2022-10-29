@@ -98,15 +98,28 @@ func (t transactionUsecase) GetDetailTransaction(id string) (*model.DetailTransa
 		return nil, err
 	}
 
-	bilRes, err := t.biller.GetDetailBiller(res.IdBiller)
-	if err != nil {
-		return nil, err
+	var bilRes *model.DetailBillerResponse
+	var data *model.Biller
+	if res.IdBiller != "" {
+		bilRes, err = t.biller.GetDetailBiller(res.IdBiller)
+		if err != nil {
+			return nil, err
+		}
+
+		data = bilRes.Data
+	} else {
+		price, err := strconv.Atoi(res.TotalAmount)
+		if err != nil {
+			return nil, err
+		}
+		data = &model.Biller{Desc: res.Description, Price: price}
+
 	}
 
 	return &model.DetailTransaction{
 		UserID: res.UserId,
 		Name:   user.Name,
-		Biller: bilRes.Data,
+		Biller: data,
 	}, nil
 }
 
